@@ -55,11 +55,12 @@ jobs:
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v2
         with:
-          file: ./**/target/site/jacoco/jacoco.xml
           token: ${{ secrets.CODECOVE_TOKEN }} # not required for public repos
-          flags: unittests # optional
-          name: codecov # optional
-          
+          directory: ./coverage/reports/
+          files: ./coverage1.xml,./coverage2.xml
+          flags: unittests
+          name: codecov-umbrella
+          path_to_write_report: ./coverage/codecov_report.txt
 
 
   deploy:
