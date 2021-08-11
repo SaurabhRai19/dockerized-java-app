@@ -51,10 +51,14 @@ jobs:
           java-version: 8
       - run: mvn -B verify -P coverage --no-transfer-progress
 
-      - uses: codecov/codecov-action@v1
+      
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v2
         with:
-          file: ./**/target/site/jacoco/jacoco.xml
-          name: codecov
+          token: ${{ secrets.CODECOVE_TOKEN }} # not required for public repos
+          flags: unittests # optional
+          name: codecov # optional
+
 
   deploy:
     runs-on: ubuntu-latest
