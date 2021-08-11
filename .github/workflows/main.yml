@@ -55,9 +55,11 @@ jobs:
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v2
         with:
+          file: ./**/target/site/jacoco/jacoco.xml
           token: ${{ secrets.CODECOVE_TOKEN }} # not required for public repos
           flags: unittests # optional
           name: codecov # optional
+          
 
 
   deploy:
