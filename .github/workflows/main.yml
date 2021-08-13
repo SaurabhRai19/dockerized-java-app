@@ -1,4 +1,4 @@
-name: A Spring Boot Java Web App with Code Coverage
+name: A Spring Boot Java Web Application with Code Coverage
 
 on:
   push:
