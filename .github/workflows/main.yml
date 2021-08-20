@@ -8,6 +8,7 @@ env:
   JAVA_VERSION: '11'
   MAVEN_RUN_COMMAND: mvn clean install
   AZURE_WEBAPP: 'toolkitdemo-java-app'
+  SONAR_HOST_URL: 'http://52.170.69.14:8080'
 
 jobs:
   build:
@@ -58,7 +59,7 @@ jobs:
     - name: Build and analyze
       env:  
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_HOST_URL: ${{ env.SONAR_HOST_URL }}
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar    
   
   coverage:
