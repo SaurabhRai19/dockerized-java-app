@@ -8,7 +8,7 @@ env:
   JAVA_VERSION: '11'
   MAVEN_RUN_COMMAND: mvn clean install
   AZURE_WEBAPP: 'toolkitdemo-java-app'
-  SONAR_HOST_URL: 'http://52.170.69.14:8080'
+  SONAR_HOST_URL: 'http://40.117.136.120:8080'
 
 jobs:
   build:
