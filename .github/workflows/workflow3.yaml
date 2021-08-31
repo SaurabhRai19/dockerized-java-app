@@ -3,7 +3,7 @@ name: A Spring Boot Java Web Application with Code Coverage, Zap Scan and ARM te
 on:
   push:
     branches:
-      - master1
+      - master
 env:  
   JAVA_VERSION: '11'
   MAVEN_RUN_COMMAND: mvn clean install
@@ -134,13 +134,13 @@ jobs:
         name: java-app
     
     - name: Get WebApp/FunctionApp publish profile
-        id: webapp
-        uses: aliencube/publish-profile-actions@v1
-        env:
-          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-        with:
-          resourceGroupName: ${{ env.AZURE_GROUP_NAME }}
-          appName: ${{ env.AZURE_WEBAPP }}
+      id: webapp
+      uses: aliencube/publish-profile-actions@v1
+      env:
+        AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+      with:
+        resourceGroupName: ${{ env.AZURE_GROUP_NAME }}
+        appName: ${{ env.AZURE_WEBAPP }}
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -152,6 +152,7 @@ jobs:
   zap_scan:
     runs-on: ubuntu-latest
     needs: deploy
+    steps:
     - name: ZAP Scan
       uses: zaproxy/action-baseline@v0.4.0
       with:
