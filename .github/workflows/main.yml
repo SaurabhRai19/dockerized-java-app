@@ -3,7 +3,7 @@ name: A Spring Boot Java Web Application with Code Coverage
 on:
   push:
     branches:
-      - master
+      - master1
 env:  
   JAVA_VERSION: '11'
   MAVEN_RUN_COMMAND: mvn clean install
