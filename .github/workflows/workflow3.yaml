@@ -3,7 +3,7 @@ name: A Spring Boot Java Web Application with Code Coverage, Zap Scan and ARM te
 on:
   push:
     branches:
-      - master
+      - master3
 env:  
   JAVA_VERSION: '11'
   MAVEN_RUN_COMMAND: mvn clean install
