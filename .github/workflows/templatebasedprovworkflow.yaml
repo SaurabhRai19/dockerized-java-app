@@ -3,7 +3,7 @@ name: CICD Spring Boot Java Web App with Provisioning
 on:
   push:
     branches:
-      - master
+      - master1
   pull_request:
     types: [opened, synchronize, reopened]
     
